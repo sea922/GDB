@@ -1,0 +1,9 @@
+Create Post =>                             CREATE (p:Post {text:'Hello 123 BHHD',username: 'Hello World', id:1}) RETURN p
+Match and create relationship:=>           MATCH (a:Post {username: 'Hello World'}),(b:User {username: 'Poman'}) WITH a, b CREATE (b)-[r:POSTING]->(a)
+Create User =>                             CREATE (a:User {username:'wijaya', user_id:123}) RETURN a
+Match FOLLOW =>                            MATCH (a:User {username: ‘andi’}),(b:User {username: ‘wijaya’}) WITH a, b CREATE (a)-[r:FOLLOW]->(b)
+         * MATCH (a) RETURN a
+Create Comment =>                          CREATE (c:Comment {text:'Omg u again',username: 'Omg u again', id:1}) RETURN c
+         *                                 MATCH (a:Comment {username: 'Omg u again'}),(b:User {username: 'Toni'}) WITH a, b CREATE (b)-[c:POSTCOMMENT]->(a)
+         *                                 MATCH (a:Comment {username: 'Have a nice da'}),(b:Post {username: 'Good morning'}) WITH a, b CREATE (b)-[c:COMMENTING]->(a)
+         */=> Graph                        MATCH (n) RETURN n LIMIT 25
